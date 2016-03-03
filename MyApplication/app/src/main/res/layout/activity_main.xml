@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="starace.learn.com.myapplication.MainActivity">
+
+    <TextView
+        android:id="@+id/main_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ToDo Lists!"
+        android:layout_marginTop="10dp"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        />
+    <ListView
+        android:id="@+id/main_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/main_title"
+        >
+    </ListView>
+
+    <RelativeLayout
+        android:id="@+id/bottom_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignBottom="@+id/main_list_view"
+        android:orientation="horizontal"
+        >
+        <Button
+            android:id="@+id/main_help_button"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:text="help"
+            android:layout_marginLeft="5dp"
+            />
+        <EditText
+            android:id="@+id/main_edit_text"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="Enter New ToDo List Here"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="10dp"
+
+            />
+
+        <android.support.design.widget.FloatingActionButton
+            android:id="@+id/main_fab"
+            android:layout_width="40dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+
+
+            />
+
+
+    </RelativeLayout>
+
+
+
+</RelativeLayout>
