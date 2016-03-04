@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                 detailArrayArray.add(savedInstanceState.getStringArrayList(Integer.toString(i)));
 
             }
-            
+
             Log.d(TAG, "the savedInstanceState is not Null: " + todoList);
         }
 
