@@ -19,8 +19,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
     public static final String TAG = "MainActivity: ";
     private static final int MAIN_REQUEST_CODE = 27;
-    public static final String DATA_KEY = "myDataKey";
-    public static final String DATA_INDEX_KEY = "myDataIndexKey";
     public static final int ERROR_INDEX = -2;
 
     FloatingActionButton fab;
@@ -38,6 +36,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         this.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
 
+
+
         detailList = new ArrayList<>();
         todoList = new ArrayList<>();
         detailArrayArray = new ArrayList<>();
@@ -49,6 +49,21 @@ public class MainActivity extends AppCompatActivity {
         setOnItemLongClick();
 
         Log.d(TAG, "onCreate method has been called in Main");
+
+        if (savedInstanceState != null) {
+
+            todoList = savedInstanceState.getStringArrayList("change");
+
+            int loop = savedInstanceState.getInt("loops");
+
+            for (int i = 0; i < loop; i++) {
+
+                detailArrayArray.add(savedInstanceState.getStringArrayList(Integer.toString(i)));
+
+            }
+            
+            Log.d(TAG, "the savedInstanceState is not Null: " + todoList);
+        }
 
 
         initializeAdapter();
@@ -177,5 +192,20 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
+        outState.putStringArrayList("change", todoList);
+
+        for (int i = 0; i < detailArrayArray.size(); i++) {
+
+            outState.putStringArrayList(Integer.toString(i), detailArrayArray.get(i));
+
+        }
+
+        outState.putInt("loops", detailArrayArray.size());
+
+        Log.d(TAG, "the onSavedInstanceState called. This is the todoList: " + todoList);
+    }
 }
